@@ -2138,6 +2138,7 @@ public class DefaultMessageStore implements MessageStore {
         @Override
         public void dispatch(DispatchRequest request) {
             if (DefaultMessageStore.this.messageStoreConfig.isMessageIndexEnable()) {
+                // 持久化索引文件
                 DefaultMessageStore.this.indexService.buildIndex(request);
             }
         }
